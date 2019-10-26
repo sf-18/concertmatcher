@@ -21,10 +21,30 @@ GENERIC_SPOTIFY_ACCESS_TOKEN = os.environ['GENERIC_SPOTIFY_ACCESS_TOKEN']
 
 REDIRECT_URI = 'http://localhost:8888' # temporary
 
+""" Bidirectional, so you can access all Users interested in a certain artist and all 
+	the Artists a certain User is interested in.""" 
+
+
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
 	spotify_user_id = db.Column(db.String, unique = True, nullable=False)
 	spotify_access_token = db.Column(db.String, unique=True)
+	facebook_user_id = db.Column(db.String, unique = True)
+
+	relevant_artists = db.relationship('Artist', secondary=association, backref = db.backref('users', lazy=True))
+
+class Artist(db.Model):
+	id = db.Column(db.Integer, unique=True, primary_key = True)
+	artist_id = db.Column(db.String, unique=True)
+	artist_name = db.Column(db.String, unique=True)
+	
+	interested_users = db.relationship('User', secondary=association, backref = db.backref('artists', lazy=True))
+
+association = db.Table('association',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+    db.Column('artist_id', db.Integer, db.ForeignKey('artist.id'), primary_key=True)
+)
+
 
 def concerts(user):
 	"""Returns concerts for a given user.""" 
@@ -50,6 +70,12 @@ def related_artists(artist_id):
 
 
 def friends(concert):
-	""" Returns the user_ids of friends to go with for a given
-		concert."""
+	""" Returns the Users to go with for a given
+		concert. Concert is the json data returned by the SeatGeek API."""
+	
+
+	
+
+
+
 
