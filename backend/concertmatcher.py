@@ -1,10 +1,11 @@
 import os 
 import requests
+import config
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flash(__name__)
+app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = """ URL OF THE DATABASE """
 db = SQLAlchemy(app)
 
@@ -20,10 +21,12 @@ def concerts(user):
 	"""Returns concerts for a given user.""" 
 	artists = top_artists(user)
 	artists = [artist.replace(" ", "+") for artist in artists]
-	query_strings = [ URL + "events?q=" + artist for artist in artists]
-
-		r = requests.get( """ seat geek api url """)
-
+	query_strings = [ URL + "events?q=" + artist + "&client_id=" + CLIENT_ID for artist in artists]
+	concerts = [] 
+	for query in query_strings:
+		r = requests.get(query)
+		concerts.append(r.json())
+	return concerts
 
 def top_artists(user):
 	""" Returns artists that the user is interested in."""
