@@ -3,7 +3,7 @@ var g_redirect_uri = 'http://' + window.location.host + '/callback/'
 function auth(cid) {
   client_id = cid;
 
-  var scopes = 'user-read-private user-read-email';
+  var scopes = 'user-read-private user-read-email user-top-read user-read-recently-played';
   var getreq = 'https://accounts.spotify.com/authorize' +
   '?response_type=code' +
   '&client_id=' + client_id +
