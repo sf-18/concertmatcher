@@ -1,39 +1,114 @@
-<!-- Font: Proxima Nova -->
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Groupify</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link href="css/clean-blog.min.css" rel="stylesheet">
 
-{% block content %}
+  </head>
 
-<section id="showcase">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-sm-6">
-        <div class="showcase-left">
-          <img src="static/img/image.png">
+  <body>
+    <nav class="navbar navbar-expand-lg bg-navbar">
+
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#showcase">Log Out</a>
+          </li>
+      </div>
+    </nav>
+
+    <header class="jumbotron" style="background-image: url('static/img/jumbotron.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1 class="display-4">Groupify</h1>
+              <span class="subheading">Never Watch A Concert Alone</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-6">
-        <div class="showcase-right">
-          <h1>Never go to concerts alone again</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </header>
+
+    <div id="wrapper" class="container">
+        <div class="row">
+          <div class="col-md-2 col-sm-10">
+            <div id="first">
+              <img id="artist" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/elisetruow.jpg" alt="">
+            </div>
+          </div>
+          <div id="second">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <div class="social-icons">
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+              </div></p>
+          </div>
         </div>
-        <br>
-        <a class="btn btn-default btn-lg showcase-btn">Read More</a>
       </div>
-    </div>
-  </div>
-</section>
+    <hr>
 
-<section id="concertsas">
-  <div class="container">
-    <p> "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    <p class="customer">- John Doe</p>
-  </div>
-</section>
+    <div id="wrapper" class="container">
+        <div class="row">
+          <div class="col-md-2 col-sm-10">
+            <div id="first">
+              <img id="artist" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/elisetruow.jpg" alt="">
+            </div>
+          </div>
+          <div id="second">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <div class="social-icons">
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+                <a href="#">
+                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+                </a>
+              </div></p>
+          </div>
+        </div>
+      </div>
+    <hr>
 
-<script
-src="https://code.jquery.com/jquery-3.4.1.js"
-integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-{% endblock %}
+
+    <footer>
+      <p class="text-center">Groupify Copyright &copy; 2019</p>
+    </footer>
+
+  </body>
+</html>
