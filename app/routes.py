@@ -2,7 +2,12 @@ import os
 import requests
 import base64
 from app import app
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, session
+from flask_session import Session
+# Ignores broken pipe warning
+
+from helpers import apology, login_required
+
 # from flask_login import login_required, current_user
 try:
     # Python 3
@@ -15,24 +20,26 @@ client_id = os.environ['CLIENT_ID']
 client_secret = os.environ['CLIENT_SECRET']
 user_access_token, user_refresh_token = None, None
 
+
+app.config["SECRET_KEY"] = os.urandom(24)
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
+
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
-    print(user_access_token)
-    if user_access_token:
-        user = {'token': user_access_token}
-        return render_template('index.html', title='Home', user=user)
-    else:
-        return redirect("/login")
+    return render_template('index.html')
 
 @app.route('/login')
 def login():
-    return render_template('login.html', cid=client_id)
+    return render_template('login.html', cid=client_id, message="Welcome! Please log in.")
 
 @app.route('/logout')
 def logout():
     user_access_token, user_refresh_token = None, None
-    return render_template('login.html', cid=client_id)
+    session.clear()
+    return render_template('login.html', cid=client_id, message="You have been logged out.")
 
 @app.route('/callback/')
 def callback():
@@ -51,8 +58,9 @@ def callback():
 
         response = requests.post('https://accounts.spotify.com/api/token', data=data)
         response = response.json()
-        user_access_token, user_refresh_token = response["access_token"], response["refresh_token"]
 
+        user_access_token, user_refresh_token = response["access_token"], response["refresh_token"]
+        session["user_id"] = user_access_token
         return redirect('/index')
     else:
-        return 'Error in authorization'
+        return apology('Error in authorization', 403)
