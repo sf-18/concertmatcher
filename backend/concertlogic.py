@@ -9,7 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 #TODO - figure out exactly what the database URI should be
-app.config["SQLALCHEMY_DATABASE_URI"] = "127.0.0.1:5432/listeningdata"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/listeningdata"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
@@ -45,7 +45,6 @@ class Artist(db.Model):
 	interested_users = db.relationship('User', secondary=association, backref = db.backref('artists', lazy=True))
 
 
-
 def concerts(user):
 	"""Returns concerts for a given user.""" 
 	artists = top_artists(user)
@@ -78,3 +77,33 @@ def friends(concert):
 		artist_obj = Artist.query.filter_by(name=artist) # each name should be unique
 		users.append(artist_obj.users) # append or concatenate - TODO: check behavior
 	return users
+
+@app.route('/add_user', methods=['POST'])
+def add_user():
+    
+    if request.method == 'POST':
+        spotify_user_id = request.args.get('spotify_user_id')
+        spotify_access_token = request.args.get('spotify_access_token')
+        facebook_user_id = request.args.get('facebook_user_id')
+
+        if not db.session.query(User).filter(User.spotify_user_id == spotify_user_id).count(): # find better way
+            db.session.add(User(spotify_user_id=spotify_user_id, spotify_access_token=spotify_access_token, facebook_user_id=facebook_user_id))
+            db.session.commit()
+        
+        update_users_top_artists(user)
+    user = User.query.filter_by(spotify_user_id=spotify_user_id)
+    update_top_artists(user)
+
+
+def update_relations(user):
+    top_artists = top_artists(user)
+    for artist in top_artists:
+        artist_name = artist["name"]
+        artist_id = artist["id"]
+        if not db.session.query(Artist).filter(Artist.name==artist_name).count(): # find better way
+            db.session.add(Artist(artist_id=artist_id, artist_name=artist_name))
+        artist = Artist.query.filter_by(artist_id = artist_id)
+        """ Check if it's not already there?""" 
+        user.relevantartists.append(artist)
+        artist.interested_users.append(relevantartists)
+
