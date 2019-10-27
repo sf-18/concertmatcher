@@ -1,89 +1,99 @@
-html, body {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-}
-body {
-  background: #000; /* fallback for old browsers */
-    background: #000; /* Chrome 10-25, Safari 5.1-6 */
-    background: #000; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body{
+  background:#000;
   font-size:20px;
 }
-header {
-  font-size: 26px;
-  color: #fff;
+header{
+  font-size:26px;
+  color:#fff;
 }
-h1,h2,h3,h4,h5,h6 {
-  font-family: "Roboto";
-  font-weight: bold;
-  font-weight: bold;
-  color: #fff;
+h1,h2,h3,h4,h5,h6{
+  font-family:"Roboto";
+  font-weight:bold;
+  font-weight:bold;
+  color:#fff;
 }
-span {
-  color: #fff;
+span{
+  color:#fff;
 }
-p {
-  font-family: "Roboto";
-  color: #fff;
+p{
+  font-family:"Roboto";
+  color:#fff;
 }
-hr {
-  border-top: 1px dotted white;
+hr{
+  border-top:1px dotted white;
 }
-footer {
+footer{
   padding:30px;
 }
 
-.bg-navbar {
+.bg-navbar{
   background:transparent;
-  background-color: #000;
-  border: 0;
-  font-family: "Poppins";
+  background-color:#000;
+  border:0;
+  font-family:"Poppins";
 }
-.navbar-brand {
+.navbar-brand{
   font-size: 20px;
+  font-family:"Poppins";
+  background:transparent;
+  border:0;
   color: #fff;
 }
-.nav-link {
-  color: #fff;
+.nav-link{
+  color:#fff;
 }
-.col-md-6 {
-  color: #fff;
+.col-md-6{
+  color:#fff;
 }
-.jumbotron {
-  min-height: 500px;
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-background-size: cover;
-  background-size: cover;
+.jumbotron{
+  min-height:500px;
+  background-repeat:no-repeat;
+  background-position:center;
+  -webkit-background-size:cover;
+  background-size:cover;
 }
-
 
 #friends {
-  margin: 10px 0px 10px 0;
-  height: 35px;
-  width: 35px;
-  border: 1px solid white;
-  float: below;
+  margin:10px 0px 10px 0;
+  height:35px;
+  width:35px;
+  border:1px solid white;
+  float:below;
 }
 #artist {
-  margin: 15px 0 10px 0;
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  right: 70px;
+  margin:15px 0 10px 0;
+  height:200px;
+  width:200px;
+  position:absolute;
+  right:70px;
 }
-#wrapper {
-  display: flex;
+#wrapper{
+  display:flex;
 }
-#first {
-    width: 350px;
+#first{
+    width:350px;
     float:right; /* add this */
     /* border: 1px solid red; */
 }
-#second {
+#second{
     /* border: 1px solid green; */
-    flex: 1;
+    flex:1;
 }
-#info1{
-  margin: 30px 0 30px 0;
+#loginbutton{
+  margin-top:20px;
+  margin-bottom:20px;
+  background-color:#000;
+  color: white;
+  border-radius:12px;
+  padding: 5px;
+}
+#loginimg{
+  margin-right: 5px;
+  vertical-align: middle;
+  height:35px;
+}
+#wrapper1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
