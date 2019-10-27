@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-  <button class="btn btn-primary" onclick="auth( '{{cid}}' );">Spotify auth</button>
-
+  <section id="auth">
+    <button class="btn btn-primary" onclick="auth( '{{cid}}' );" id="auth">Spotify auth</button>
+  </section>
 {% endblock %}
