@@ -7,7 +7,10 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = """ URL OF THE DATABASE """
+
+#TODO - figure out exactly what the database URI should be
+app.config["SQLALCHEMY_DATABASE_URI"] = "127.0.0.1:5432/listeningdata"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 SEATGEEK_CLIENT_ID = os.environ['SEATGEEK_CLIENT_ID']
@@ -18,9 +21,15 @@ SPOTIFY_CLIENT_ID = os.environ['SPOTIFY_CLIENT_ID']
 SPOTIFY_SECRET = os.environ['SPOTIFY_SECRET']
 SPOTIFY_URL = os.environ['SPOTIFY_API_URL']
 
+REDIRECT_URI = 'http://localhost:8888' # temporary
+
 """ Bidirectional, so you can access all Users interested in a certain artist and all 
 	the Artists a certain User is interested in.""" 
 
+association = db.Table('association',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+    db.Column('artist_id', db.Integer, db.ForeignKey('artist.id'), primary_key=True)
+)
 
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
@@ -37,16 +46,11 @@ class Artist(db.Model):
 	
 	interested_users = db.relationship('User', secondary=association, backref = db.backref('artists', lazy=True))
 
-association = db.Table('association',
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
-    db.Column('artist_id', db.Integer, db.ForeignKey('artist.id'), primary_key=True)
-)
 
 
 def concerts(user):
 	"""Returns concerts for a given user.""" 
 	artists = top_artists(user)
-	for 
 	artists = [artist.replace(" ", "+") for artist in artists]
 	query_strings = [ SEATGEEK_URL + "events?q=" + artist + "&client_id=" + SEATGEEK_CLIENT_ID for artist in artists]
 	concerts = [] 
@@ -76,12 +80,3 @@ def friends(concert):
 		artist_obj = Artist.query.filter_by(name=artist) # each name should be unique
 		users.append(artist_obj.users) # append or concatenate - TODO: check behavior
 	return users
-
-
-	
-
-	
-
-
-
-
