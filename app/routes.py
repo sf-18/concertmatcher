@@ -7,6 +7,7 @@ from flask_session import Session
 # Ignores broken pipe warning
 
 from helpers import apology, login_required
+from concertlogic import *
 
 # from flask_login import login_required, current_user
 try:
