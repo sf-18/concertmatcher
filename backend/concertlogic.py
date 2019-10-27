@@ -21,8 +21,6 @@ SPOTIFY_CLIENT_ID = os.environ['SPOTIFY_CLIENT_ID']
 SPOTIFY_SECRET = os.environ['SPOTIFY_SECRET']
 SPOTIFY_URL = os.environ['SPOTIFY_API_URL']
 
-REDIRECT_URI = 'http://localhost:8888' # temporary
-
 """ Bidirectional, so you can access all Users interested in a certain artist and all 
 	the Artists a certain User is interested in.""" 
 
