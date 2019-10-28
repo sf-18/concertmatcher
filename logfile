@@ -1,0 +1,51 @@
+2019-10-27 02:46:23.853 PDT [18298] LOG:  could not bind IPv6 address "::1": Address already in use
+2019-10-27 02:46:23.853 PDT [18298] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-10-27 02:46:23.854 PDT [18298] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2019-10-27 02:46:23.854 PDT [18298] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-10-27 02:46:23.854 PDT [18298] WARNING:  could not create listen socket for "localhost"
+2019-10-27 02:46:23.854 PDT [18298] FATAL:  could not create any TCP/IP sockets
+2019-10-27 02:46:23.854 PDT [18298] LOG:  database system is shut down
+2019-10-27 02:46:42.300 PDT [18441] LOG:  listening on IPv6 address "::1", port 5432
+2019-10-27 02:46:42.300 PDT [18441] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-10-27 02:46:42.303 PDT [18441] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-10-27 02:46:42.322 PDT [18443] LOG:  database system was shut down at 2019-10-27 02:46:17 PDT
+2019-10-27 02:46:42.352 PDT [18441] LOG:  database system is ready to accept connections
+2019-10-27 02:46:54.407 PDT [18454] FATAL:  database "charleswang" does not exist
+2019-10-27 02:47:02.470 PDT [18458] FATAL:  database "listeningdata" does not exist
+2019-10-27 02:47:58.067 PDT [18471] FATAL:  database "listeningdata" does not exist
+2019-10-27 03:52:53.825 PDT [18487] ERROR:  relation "assoication_table" does not exist at character 16
+2019-10-27 03:52:53.825 PDT [18487] STATEMENT:  SELECT * 
+	FROM assoication_table;
+2019-10-27 03:54:16.399 PDT [18487] ERROR:  syntax error at or near "SELECT" at character 10
+2019-10-27 03:54:16.399 PDT [18487] STATEMENT:  SELECT *
+	SELECT * 
+	FROM user;
+2019-10-27 04:49:19.349 PDT [19861] FATAL:  database "charleswang" does not exist
+2019-10-27 05:31:23.489 PDT [20191] ERROR:  insert or update on table "association" violates foreign key constraint "association_user_id_fkey"
+2019-10-27 05:31:23.489 PDT [20191] DETAIL:  Key (user_id)=(2) is not present in table "user".
+2019-10-27 05:31:23.489 PDT [20191] STATEMENT:  INSERT INTO association (user_id, artist_id) VALUES (2, 843)
+2019-10-27 05:32:19.191 PDT [20204] ERROR:  insert or update on table "association" violates foreign key constraint "association_user_id_fkey"
+2019-10-27 05:32:19.191 PDT [20204] DETAIL:  Key (user_id)=(2) is not present in table "user".
+2019-10-27 05:32:19.191 PDT [20204] STATEMENT:  INSERT INTO association (user_id, artist_id) VALUES (2, 843)
+2019-10-27 05:35:06.930 PDT [20223] ERROR:  column association.spotify_user_id does not exist at character 150
+2019-10-27 05:35:06.930 PDT [20223] STATEMENT:  SELECT artist.id AS artist_id_1, artist.artist_id AS artist_artist_id, artist.artist_name AS artist_artist_name 
+	FROM artist, association 
+	WHERE 2 = association.spotify_user_id AND artist.id = association.artist_id
+2019-10-27 05:36:30.369 PDT [20230] ERROR:  column association.spotifyuser_id does not exist at character 150
+2019-10-27 05:36:30.369 PDT [20230] STATEMENT:  SELECT artist.id AS artist_id_1, artist.artist_id AS artist_artist_id, artist.artist_name AS artist_artist_name 
+	FROM artist, association 
+	WHERE 2 = association.spotifyuser_id AND artist.id = association.artist_id
+2019-10-27 05:37:24.658 PDT [20238] ERROR:  insert or update on table "association" violates foreign key constraint "association_user_id_fkey"
+2019-10-27 05:37:24.658 PDT [20238] DETAIL:  Key (user_id)=(2) is not present in table "user".
+2019-10-27 05:37:24.658 PDT [20238] STATEMENT:  INSERT INTO association (user_id, artist_id) VALUES (2, 843)
+2019-10-27 05:56:13.193 PDT [19863] ERROR:  syntax error at or near "DROP" at character 19
+2019-10-27 05:56:13.193 PDT [19863] STATEMENT:  DROP TABLE artist
+	DROP TABLE spotifyuser
+	DROP TABLE association
+	owner
+	DROP TABLE association;
+2019-10-27 05:56:56.332 PDT [19863] ERROR:  syntax error at or near "DROP" at character 19
+2019-10-27 05:56:56.332 PDT [19863] STATEMENT:  DROP
+	TABLE artist
+	DROP
+	TABLE artist;
