@@ -1,15 +1,13 @@
 import os
 import requests
 import base64
-from app import app
+from app import app, db
 from flask import render_template, request, redirect, session
 from flask_session import Session
-from flask_sqlalchemy import SQLAlchemy
 # Ignores broken pipe warning
 
 from helpers import apology, login_required
 from models import SpotifyUser, Artist
-from models import db
 from concertlogic import *
 from tempfile import mkdtemp
 import config
@@ -76,7 +74,7 @@ def login():
 def logout():
     user_access_token = None
     # session.clear()
-    return render_template('login.html', cid=SPOTIFY_CLIENT_ID, ac=user_access_token, message="You have been logged out.")
+    return render_template('login.html', cid=SPOTIFY_CLIENT_ID, ac=None, message="You have been logged out.")
 
 @app.route('/callback/')
 def callback():
@@ -106,7 +104,7 @@ def callback():
         spotify_user_id = user['id']
         spotify_access_token = response["access_token"]
         # facebook_user_id = request.args.get('facebook_user_id')
-        print(SpotifyUser.query.filter_by(spotify_user_id=spotify_user_id).count())
+
         if not SpotifyUser.query.filter_by(spotify_user_id=spotify_user_id).count():
             db.session.add(SpotifyUser(spotify_user_id=spotify_user_id, spotify_access_token=spotify_access_token))
             db.session.commit()

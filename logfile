@@ -49,3 +49,7 @@
 	TABLE artist
 	DROP
 	TABLE artist;
+2019-12-19 20:23:49.131 PST [18441] LOG:  received smart shutdown request
+2019-12-19 20:23:49.136 PST [18441] LOG:  background worker "logical replication launcher" (PID 18449) exited with exit code 1
+2019-12-19 20:23:49.136 PST [18444] LOG:  shutting down
+2019-12-19 20:23:49.167 PST [18441] LOG:  database system is shut down

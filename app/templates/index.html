@@ -34,41 +34,24 @@
         </div>
       </div>
     </header>
-    {% for concert in concert %}
-    <div id="wrapper" class="container">
-
+    {% for concert in concerts %}
+    <div id="wrapper" class="container-fluid">
         <div class="row">
-          <div class="col-md-2 col-sm-10">
-              <div id="first">
-                <img id="{{concert['title']}}" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="concert['images']['large']" alt="">
-              </div>
+          <div class="col-lg-2">   
+              <img id="{{concert['title']}}" class="img-fluid img-profile rounded-circle mx-auto mb-2" src='{{ concert['image'] }}' alt=""> 
           </div>
-          <div id="second">
+          <div class="col">
             <ul style="list-style: none;">
-             <li>{{concert['title']}}</li>
-             <li>{{concert['url']}}</li>
-             <li>When: {{concert['datetime_local']|strftime}}</li>
+             <li><p>{{concert['title']}}</p></li>
+             <li><p>When: {{concert['datetime_local']|strftime}}</p></li>
+             <li><p>Where: {{concert['location']}}</p></li>
+            <li><a href='{{concert['url']}}'>View event on SeatGeek</a></li>
             </ul>
-              <div class="social-icons">
-                <a href="#">
-                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
-                </a>
-                <a href="#">
-                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
-                </a>
-                <a href="#">
-                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
-                </a>
-                <a href="#">
-                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
-                </a>
-                <a href="#">
-                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
-                </a>
-                <a href="#">
-                  <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
-                </a>
-              </div></p>
+          </div>
+          <div class="col social-icons">
+            <a href="#">
+              <img id="friends" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/friend.png" alt="">
+            </a>
           </div>
         </div>
       </div>

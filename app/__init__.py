@@ -1,5 +1,9 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-from app import routes
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/groupify"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)

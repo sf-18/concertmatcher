@@ -67,17 +67,10 @@ footer{
   position:absolute;
   right:70px;
 }
-#wrapper{
-  display:flex;
-}
 #first{
     width:350px;
     float:right; /* add this */
     /* border: 1px solid red; */
-}
-#second{
-    /* border: 1px solid green; */
-    flex:1;
 }
 #loginbutton{
   margin-top:20px;
